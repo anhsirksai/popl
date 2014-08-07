@@ -1,0 +1,81 @@
+Study Notes for popl
+* Topics to be taught
+- Values
+- types and expressions.
+- Abstract syntax.
+- Contract Backus-Naur form.
+- Block structure and lexical environments.
+- Scope and binding.
+- Procedures and closures.
+- Recursion.
+- Implementing recursion.
+- Stores.
+- Computational effects.
+- Explicit and implicit references.
+- Implementing mutation.
+- Expressible and denotable values.
+- Parameter passing.
+- Tail recursion.
+- Iterative systems.
+- Continuation-passing style (CPS).
+- Converting to CPS.
+- Continuation-passing interpreters.
+- Trampolining.
+- Imperative interpreters.
+- Modeling exceptions and threads.
+
+* Advanced topics (if time permits):
+  - Type checking.
+  - Term unification.
+  - Type reconstruction.
+  - Logic Programming.
+
+* Day 1 Study:
+** Understanding on Mathematics topics:
++ Sets
++ functions
++ relations
+
+** What is programming language
++ Answer:
+ -  To answer this, first : What is programming language?
+ -  a program is an input to a machine(vm like in jvm) and the machine outputs the answer.
+** Approaches to study programming languages:
++ Compiling:
+  - How the program is converted from one lang to other (possibly to low-level language)
++ Mathematical specification of programming languages:
+  - The meaning of every program is given by a mathematical specification of the semantics of its underlying programming language. Three main approaches exist:
+      + denotational, where programs and the programming language are mapped to a set of continuous functions over complete partial orders, 
+      + operational, where the meaning of a program is explicated as a sequence of transition rules on a virtual machine, or
+      + axiomatic semantics, where programs are thought of as predicate transformers. The mathematical semantics approach will be taught in an advanced course. 
++ Definitional Interpreters
+  -  interpreters, each a virtual machine for a mini language with specific features.
+** The Racket Guide [[http://docs.racket-lang.org/guide/intro.html][Ch 1-6]]
++ Welcome to Racket
++ Racket essentials
++ Built-in data types
++ Expressions and Defnitions
++ Programmer defined data types
++ Modules
+
+* Day 2 Study: <2014-08-06 Wed>
+** My first scheme program
+
+#+BEGIN_SRC scheme :tangle program1.scm
+define hello-world
+   (lambda ()
+         (begin
+	(write `Hello-World)
+            (newline)
+	(hello-world))))
+
+;; to execute: it can be done in drracket, emacs
+;; in *defnition window* paste the above code, hit C-r to run the program
+;; in *Interactions window* type the function name i.e hello-world
+
+;; for running in emacs: follow the [[link][http://community.schemewiki.org/?emacs-tutorial]]
+#+END_SRC
+
+** talking to scheme:
++ scheme + shell + textEditor
++ simply.scm is a file with all the scheme premitives written by scheme authors.
