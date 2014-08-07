@@ -80,6 +80,8 @@ define hello-world
 + scheme + shell + textEditor
 + simply.scm is a file with all the scheme premitives written by scheme authors.
 * Day 3 Study: <2014-08-07 Thu>
+** Interesting topic of the day: 
++ *Local Binding* feature of scheme.
 ** continuting with Dr.Racket
 + understood the basic primitives usage on racket: 
   - #lang slideshow: to use shapes.
@@ -122,4 +124,46 @@ b();
 #+BEGIN_SRC scheme
 (define (series mk)
   (hc-append 4 (mk 5) (mk 10) (mk 20)))
+#+END_SRC
+** Mathematical Operations in scheme
+   + (sqrt A)
+   + (expt A B) : computer A power B.
+   + (reminder A B) : reminder of A/B
+** Designing programmes.
+  + *Contract* :We write *contract* for the program first as below:
+  + *Purpose Statement* : is like comment. describing what the program does.
+  + *Example* 
+  + *Defnition* : we continue writing *header*.
+  + *Body*
+  + *Tests*
+#+BEGIN_SRC scheme
+;; Contract: area-of-ring : number number  ->  number
+
+;; Purpose: to compute the area of a ring whose radius is
+;; outer and whose hole has a radius of inner
+
+;; Example: (area-of-ring 5 3) should produce 50.24
+
+;; Definition: [refines the header]
+(define (area-of-ring outer inner)
+  (- (area-of-disk outer)
+     (area-of-disk inner)))
+  
+;; Tests:
+(area-of-ring 5 3) 
+;; expected value
+50.24
+
+;; area-of-ring : number number  ->  number
+#+END_SRC
+** Programming techniques:
+  + Follow the notion of Main functions and Auxillary/Helper Functions.
+  + Working on the problem and designing a solution.
+#+BEGIN_SRC python
+'''
+Imagine the owner of a movie theater who has complete freedom in setting ticket prices. The more he charges, the fewer the people who can afford tickets. In a recent experiment the owner determined a precise relationship between the price of a ticket and average attendance. At a price of $5.00 per ticket, 120 people attend a performance. Decreasing the price by a dime ($.10) increases attendance by 15. Unfortunately, the increased attendance also comes at an increased cost. Every performance costs the owner $180. Each attendee costs another four cents ($0.04). The owner would like to know the exact relationship between profit and ticket price so that he can determine the price at which he can make the highest profit. 
+#+END_SRC
+#+BEGIN_SRC Scheme
+;;; The solution to this involves dealing with: 1.revenues - costs. 2.calculating revenues and costs.
+
 #+END_SRC
