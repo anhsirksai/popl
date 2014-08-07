@@ -60,7 +60,6 @@ Study Notes for popl
 
 * Day 2 Study: <2014-08-06 Wed>
 ** My first scheme program
-
 #+BEGIN_SRC scheme :tangle program1.scm
 define hello-world
    (lambda ()
@@ -72,10 +71,55 @@ define hello-world
 ;; to execute: it can be done in drracket, emacs
 ;; in *defnition window* paste the above code, hit C-r to run the program
 ;; in *Interactions window* type the function name i.e hello-world
-
-;; for running in emacs: follow the [[link][http://community.schemewiki.org/?emacs-tutorial]]
 #+END_SRC
-
++ For running in emacs: follow the [[link][http://community.schemewiki.org/?emacs-tutorial]]
 ** talking to scheme:
++ Key point to note here: there are many flavors of scheme.
+  - simply scheme from berkley. This is just scheme, with additioinal .scm files to be loaded at the startup of any scheme interpreter.
+  - The other and preferred one in IIIT is DR.Racket's version of scheme. We need to specify saying /\#lang scheme/ at the beginning of the scheme file.
 + scheme + shell + textEditor
 + simply.scm is a file with all the scheme premitives written by scheme authors.
+* Day 3 Study: <2014-08-07 Thu>
+** continuting with Dr.Racket
++ understood the basic primitives usage on racket: 
+  - #lang slideshow: to use shapes.
+  - circle and rectangle as example shapes /(circle 10)/
+  - hc-append : horizontly and centered-vertically append the shapes.
++ defnitions: while declating defnitions, just give a variable name beside defnition name, that variable name is now argument name as in *void fun(char a)* in c.
+#+BEGIN_SRC scheme
+;;example 1
+;; define is used to start scheme.
+(define c(circle 10))
+
+;;example2
+(define (square n)
+  ;use **filled-rectangle** function
+  (filled-rectangle n n))
+
+;; usage: > (square 10)
+#+END_SRC
++ Local Binding: A function can be defined inside a function and can be called.
+#+BEGIN_SRC C
+void a(a)
+{
+
+int b() { printf ("sai");}
+b();
+}
+
+// This for sure is not possible in C. But it is possible in scheme and is called Local Binding.
+#+END_SRC
+#+BEGIN_SRC Scheme
+(define (four p)
+  (define two-p (hc-append p p))
+  (vc-append two-p two-p))
+
+;;> (four (circle 10))
+#+END_SRC
++ Functions and values: Function in Scheme is considered as a values. Since functions are values, we can define functions that expect other functions as arguments.
+  - In the below example series function takes circle as an argument. 
+  - (series (*circle*))
+#+BEGIN_SRC scheme
+(define (series mk)
+  (hc-append 4 (mk 5) (mk 10) (mk 20)))
+#+END_SRC
