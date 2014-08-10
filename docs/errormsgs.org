@@ -1,0 +1,27 @@
+* common error messages:
+** Errors while defining messages:
++ Compile time
+#+BEGIN_SRC scheme
+(define h(x)
+  (+ x 10))
+#+END_SRC
+#+BEGIN_SRC text
+define: bad syntax (multiple expressions after identifier) in: (define h (x) (+ x 10))
+
+;;correct way
+(define (h x)
+  (+ x 10))
+#+END_SRC
++ Runtime
+#+BEGIN_SRC scheme
+(define (f x)
+  ..)
+;;calling: (f 3 4) -- This will throw an error as below:
+#+END_SRC
+#+BEGIN_SRC text
+ h: arity mismatch;
+ the expected number of arguments does not match the given number
+  expected: 1
+  given: 2
+#+END_SRC
++ Logical
